@@ -86,5 +86,31 @@
     });
 })();
 </script>
+
+  <!-- 1. Paste where the ad should appear (悬浮在顶部) -->
+  <div id="roiify-ad-container" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; justify-content: center; pointer-events: none;">
+    <div
+      data-roiify-placement="plc_kpirjsvby8gk"
+      data-theme="auto"
+      data-width="auto"
+      data-radius="8"
+      style="pointer-events: auto;"
+    ></div>
+  </div>
+
+  <script>
+    // 提供给游戏源码调用的全局方法，方便您以后在 Cocos 逻辑中控制广告显示/隐藏
+    window.showMyAd = function() {
+      var ad = document.getElementById('roiify-ad-container');
+      if (ad) ad.style.display = 'flex';
+    };
+    window.hideMyAd = function() {
+      var ad = document.getElementById('roiify-ad-container');
+      if (ad) ad.style.display = 'none';
+    };
+  </script>
+
+  <!-- 2. Load SDK once per page (usually before </body>) -->
+  <script async src="https://www.roiify.net/sdk/roiify-ads.js"></script>
 </body>
 </html>
